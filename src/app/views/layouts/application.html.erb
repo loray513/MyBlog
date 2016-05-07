@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Src</title>
+  <title>Home</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<%= link_to 'BLOG', root_url, class: 'navbar-brand'%>
+	    </div>
+		<ul id="navbar" class="nav navbar-nav nav-pills">
+			<li role="presentation" id='home'><%= link_to 'Home', root_url%></li>
+			<li id='post' role="presentation"><%= link_to 'New Post', new_post_url%></li>
+			<li id='features' role="presentation"><%= link_to 'Others', ''%></li>
+			<li id='about' role="presentation"><%= link_to 'About', ''%></li>
+<!-- 			<%# if current_user.blank? %>
+				<li role="presentation" class="pull-right">
+					<%#= link_to 'Sign In', new_user_session_path%>
+				</li>
+			<%# else %>
+				<li role="presentation" class="pull-right">
+					<%#= link_to 'Sign Out', destroy_user_session_path, method: 'delete'%>
+				</li>
+			<%# end %> -->
+		</ul>
+	</nav>
+	<br>
+	<div class="container">
+	 	<%= bootstrap_flash %>
+		<%= yield %>	
+	</div>
 
-<%= yield %>
+
 
 </body>
 </html>

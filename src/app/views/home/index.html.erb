@@ -1,0 +1,12 @@
+<h1 class="page-header">Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user.present? && !current_user.confirmed? %>
+<%= link_to('Send Again', new_user_confirmation_path)%>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+     $("#navbar ul li").removeClass('active');
+     $("#home").addClass('active');
+  });
+</script>
